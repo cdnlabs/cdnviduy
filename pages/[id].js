@@ -52,7 +52,8 @@ export default function Player() {
       const randomIndex = Math.floor(Math.random() * affiliateLinks.length);
       window.open(affiliateLinks[randomIndex], '_blank');
     } else {
-      window.location.href = `https://cdn.videy.co/${id}.mp4`;
+      // PERBAIKAN: Menggunakan cdn2 untuk download
+      window.location.href = `https://cdn2.videy.co/${id}.mp4`;
       localStorage.setItem('download_step', '0');
     }
   };
@@ -112,7 +113,8 @@ export default function Player() {
             preload="metadata"
             playsInline
           >
-            <source src={`https://cdn.videy.co/${id}.mp4`} type="video/mp4" />
+            {/* PERBAIKAN: Menggunakan cdn2 untuk player */}
+            <source src={`https://cdn2.videy.co/${id}.mp4`} type="video/mp4" />
           </video>
         </div>
 
