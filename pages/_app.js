@@ -3,14 +3,14 @@ import Script from 'next/script'
 export default function MyApp({ Component, pageProps }) {
   return (
     <>
-      {/* Histats Tracking */}
+      {/* Histats Tracking - Menggunakan strategy lazyOnload agar tidak bentrok dengan iklan */}
       <Script 
         id="histats-script" 
-        strategy="afterInteractive"
+        strategy="lazyOnload"
         dangerouslySetInnerHTML={{
           __html: `
             var _Hasync= _Hasync|| [];
-            _Hasync.push(['Histats.start', '1,5011326,4,0,0,0,00010000']);
+            _Hasync.push(['Histats.start', '1,5011680,4,0,0,0,00010000']);
             _Hasync.push(['Histats.fasi', '1']);
             _Hasync.push(['Histats.track_hits', '']);
             (function() {
@@ -21,6 +21,10 @@ export default function MyApp({ Component, pageProps }) {
           `,
         }}
       />
+      
+      {/* Kita hapus noscript dari sini karena sering bikin error di Next.js */}
+      {/* Statistik akan tetap tercatat lewat script di atas */}
+
       <Component {...pageProps} />
     </>
   )
